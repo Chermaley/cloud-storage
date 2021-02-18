@@ -1,6 +1,6 @@
 import {Action, applyMiddleware, combineReducers, createStore} from "redux";
 import {composeWithDevTools} from "redux-devtools-extension";
-import thunk, { ThunkAction } from "redux-thunk";
+import thunkMiddleware, { ThunkAction } from "redux-thunk";
 import userReducer from "./userReducer";
 import fileReducer from "./fileReducer";
 
@@ -18,4 +18,4 @@ export type InferActionsTypes<T> = T extends { [keys: string]: (...args: any[]) 
 
 export type CommonThunkType<A extends Action, R = Promise<void>> = ThunkAction<R, AppStateType, unknown, A>
 
-export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunkMiddleware)));

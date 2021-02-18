@@ -1,6 +1,6 @@
 const {Schema, model, ObjectId} = require('mongoose');
 
-const User = new Schema({
+const User: typeof Schema = new Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     diskSpace: {type: Number},
